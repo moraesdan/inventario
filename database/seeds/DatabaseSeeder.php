@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('aaaaaa'),
             'setor_id' => 1,
             'cpf' => '',
-            'funcao' => '',
+            'funcao' => 'Coordenador',
             'encarregado' => '',
         ]);
 
