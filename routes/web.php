@@ -23,6 +23,18 @@ Route::middleware('auth')->group( function(){
     Route::get('/itens/editar/{item_id}', 'ItemController@ver')->name('ver_item');
     Route::post('/itens/editar/{item_id}', 'ItemController@editar')->name('editar_item');
 
+    Route::post('/itens/nome_item', 'ItemNomeController@novo')->name('criar_nome_item');
+    Route::get('/itens/nome_item', 'ItemNomeController@index')->name('ver_nome_item');
+    Route::post('/itens/deletar_nome/{nome_id}', 'ItemNomeController@deletar')->name('deletar_nome_item'); 
+
+    Route::post('/itens/status_item', 'ItemStatusController@novo')->name('criar_status_item');
+    Route::get('/itens/status_item', 'ItemStatusController@index')->name('ver_status_item');
+    Route::post('/itens/deletar_status/{status_id}', 'ItemStatusController@deletar')->name('deletar_status_item'); 
+
+    Route::post('/itens/tipo_item', 'ItemTipoController@novo')->name('criar_tipo_item');
+    Route::get('/itens/tipo_item', 'ItemTipoController@index')->name('ver_tipo_item');
+    Route::post('/itens/deletar_tipo/{tipo_id}', 'ItemTipoController@deletar')->name('deletar_tipo_item'); 
+
     // Rotas para movimentacoees
     Route::get('/movimentacoes', 'MovimentacaoController@index')->name('todas_movimentacoes'); 
     Route::post('/itens/mover/{item_id}/{local_orig_id}/{local_dest_id}', 'MovimentacaoController@mover')->name('mover_item'); 

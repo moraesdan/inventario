@@ -10,6 +10,7 @@ use App\User as User;
 use App\Setor as Setor;
 use App\Local as Local;
 use App\Fornecedor as Fornecedor;
+use App\NomeItem as NomeItem;
     
 class ItemController extends Controller {
 
@@ -19,7 +20,8 @@ class ItemController extends Controller {
                                 User $user, 
                                 Setor $setor, 
                                 Local $local, 
-                                Fornecedor $fornecedor) 
+                                Fornecedor $fornecedor,
+                                NomeItem $nomeItem) 
     {
         $this->item = $item;
         $this->tipo = $tipo;
@@ -28,6 +30,7 @@ class ItemController extends Controller {
         $this->setor = $setor;
         $this->local = $local;
         $this->fornecedor = $fornecedor;
+        $this->nomeItem = $nomeItem;
     }
 
     public function index() {
@@ -45,10 +48,10 @@ class ItemController extends Controller {
         $data = [];
 
         $data['nome'] = $request->input('nome');
-        $data['serial'] = $request->input('serial');
+        $data['cod_patrimonio'] = $request->input('cod_patrimonio');
         $data['descricao'] = $request->input('descricao');
-        $data['status'] = $request->input('status');
-        $data['tipo'] = $request->input('tipo');
+        $data['status_id'] = $request->input('status_id');
+        $data['tipo_id'] = $request->input('tipo_id');
         $data['valor'] = $request->input('valor');
         $data['entrada'] = $request->input('entrada');
         $data['nota'] = $request->input('nota');
@@ -57,7 +60,7 @@ class ItemController extends Controller {
         $data['setor_id'] = $request->input('setor_id');
         $data['local_id'] = $request->input('local_id');
         $data['fornecedor_id'] = $request->input('fornecedor_id');
-        
+         
 
         if( $request->isMethod('post'))
         {
@@ -65,7 +68,7 @@ class ItemController extends Controller {
                 $request,
                 [
                     'nome' => 'required',
-                    'serial' => 'required',
+                    'cod_patrimonio' => 'required',
                     'status' => 'required',
                     'tipo' => 'required',
                     'valor' => 'required',
@@ -84,8 +87,9 @@ class ItemController extends Controller {
         $data['setores'] = $this->setor->getSetores();
         $data['locais'] = $this->local->getLocais();
         $data['fornecedores'] = $this->fornecedor->getForns();
-        $data['status_array'] = $this->status->allStatus();
-        $data['tipos_array'] = $this->tipo->allTipos();
+        $data['status_array'] = $this->status->getStatus();
+        $data['tipos_array'] = $this->tipo->getTipos();
+        $data['nomes_array'] = $this->nomeItem->getNomes();
 
         //dd($data);
 
@@ -102,10 +106,10 @@ class ItemController extends Controller {
         $item_data = $this->item->find($item_id);
 
         $data['nome'] = $item_data->nome;
-        $data['serial'] = $item_data->serial;
+        $data['cod_patrimonio'] = $item_data->cod_patrimonio;
         $data['descricao'] = $item_data->descricao;
-        $data['status'] = $item_data->status;
-        $data['tipo'] = $item_data->tipo;
+        $data['status_id'] = $item_data->status_id;
+        $data['tipo_id'] = $item_data->tipo_id;
         $data['valor'] = $item_data->valor;
         $data['entrada'] = $item_data->entrada;
         $data['nota'] = $item_data->nota;
@@ -117,8 +121,9 @@ class ItemController extends Controller {
         $data['setores'] = $this->setor->getSetores();
         $data['locais'] = $this->local->getLocais();
         $data['fornecedores'] = $this->fornecedor->getForns();
-        $data['status_array'] = $this->status->allStatus();
-        $data['tipos_array'] = $this->tipo->allTipos();
+        $data['status_array'] = $this->status->getStatus();
+        $data['tipos_array'] = $this->tipo->getTipos();
+        $data['nomes_array'] = $this->nomeItem->getNomes();
          
         //dd($data);
 
@@ -131,10 +136,10 @@ class ItemController extends Controller {
         $data = [];
 
         $data['nome'] = $request->input('nome');
-        $data['serial'] = $request->input('serial');
+        $data['cod_patrimonio'] = $request->input('cod_patrimonio');
         $data['descricao'] = $request->input('descricao');
-        $data['status'] = $request->input('status');
-        $data['tipo'] = $request->input('tipo');
+        $data['status_id'] = $request->input('status_id');
+        $data['tipo_id'] = $request->input('tipo_id');
         $data['valor'] = $request->input('valor');
         $data['entrada'] = $request->input('entrada');
         $data['nota'] = $request->input('nota');
@@ -150,7 +155,7 @@ class ItemController extends Controller {
                 $request,
                 [
                     'nome' => 'required',
-                    'serial' => 'required',
+                    'cod_patrimonio' => 'required',
                     'status' => 'required',
                     'tipo' => 'required',
                     'valor' => 'required',
@@ -160,10 +165,10 @@ class ItemController extends Controller {
 
             $item_data = $this->item->find($item_id);
             $item_data->nome = $request->input('nome');
-            $item_data->serial = $request->input('serial');
+            $item_data->cod_patrimonio = $request->input('cod_patrimonio');
             $item_data->descricao = $request->input('descricao');
-            $item_data->status = $request->input('status');
-            $item_data->tipo = $request->input('tipo');
+            $item_data->status_id = $request->input('status_id');
+            $item_data->tipo_id = $request->input('tipo_id');
             $item_data->valor = $request->input('valor');
             $item_data->entrada = $request->input('entrada');
             $item_data->nota = $request->input('nota');    

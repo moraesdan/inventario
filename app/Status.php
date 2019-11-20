@@ -3,13 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
-class Status extends ReadOnlyBase
+class Status extends Model
 {
-    protected $status_array = [
-        'Em uso', 
-        'Disponível', 
-        'Necessita manutenção'
-    ];
+    protected $table = 'status';
 
+    public function getStatus() {
+        $query = DB::table('status')
+            ->select('id', 'nome')
+            ->get();
+
+        return $query;
+    }
 }

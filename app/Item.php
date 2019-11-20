@@ -13,10 +13,11 @@ class Item extends Model
     public function getItens() {
         $query = DB::table('itens as i')
             ->join('users as u', 'i.user_id', '=', 'u.id' )
+            ->join('status as sta', 'i.status_id', '=', 'sta.id' )
             ->join('setores as s', 'i.setor_id', '=', 's.id' )
             ->join('locais as l', 'i.local_id', '=', 'l.id' )
             ->join('fornecedores as f', 'i.fornecedor_id', '=', 'f.id' )
-            ->select('i.*', 'u.name as user', 's.nome as setor', 'l.nome as local', 'f.razao as fornecedor')
+            ->select('i.*', 'u.name as user', 'sta.nome as status', 's.nome as setor', 'l.nome as local', 'f.razao as fornecedor')
             ->get();
 
         return $query;

@@ -15,14 +15,16 @@ class CreateItensTable extends Migration
     {
         Schema::create('itens', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('serial');
+            $table->string('cod_patrimonio');
             $table->string('nome');
             $table->string('descricao');
-            $table->string('status');
             $table->string('valor');
             $table->date('entrada');
             $table->string('nota');
-            $table->string('tipo');
+            $table->bigInteger('status_id')->unsigned();
+            $table->foreign('status_id')->references('id')->on('status');
+            $table->bigInteger('tipo_id')->unsigned();
+            $table->foreign('tipo_id')->references('id')->on('tipo');
             $table->bigInteger('local_id')->unsigned();
             $table->foreign('local_id')->references('id')->on('locais');
             $table->bigInteger('setor_id')->unsigned();

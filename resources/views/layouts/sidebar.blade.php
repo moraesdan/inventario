@@ -37,6 +37,9 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <a class="collapse-item" href="{{ route('todos_itens') }}">Todos itens</a>
       <a class="collapse-item" href="{{ route('novo_item') }}">Novo item</a>
+      <a class="collapse-item" href="{{ route('ver_nome_item') }}">Nomes de itens</a>
+      <a class="collapse-item" href="{{ route('ver_status_item') }}">Status</a>
+      <a class="collapse-item" href="{{ route('ver_tipo_item') }}">Tipos</a>
     </div>
   </div>
 </li>

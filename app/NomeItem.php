@@ -5,12 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class Tipo extends Model
+class NomeItem extends Model
 {
-    protected $table = 'tipo';
 
-    public function getTipos() {
-        $query = DB::table('tipo')
+    protected $table = 'nome_item';
+
+    public function getNomes() {
+        $query = DB::table('nome_item')
             ->select('id', 'nome')
             ->get();
 
