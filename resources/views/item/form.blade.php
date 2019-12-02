@@ -26,8 +26,8 @@
             <label for="nome">Nome*</label>
             <input type="text" class="form-control" name="nome" list="nome_item" value="{{ old('nome') ? old('nome') : $nome }}" autocomplete="off"/> 
           
-          <!-- <input type="text" class="form-control" name="nome" value="{{ old('nome') ? old('nome') : $nome }}" placeholder="">
-          <small class="erro">{{ $errors->first('nome') }}</small> -->
+          <!-- <input type="text" class="form-control" name="nome" value="{{ old('nome') ? old('nome') : $nome }}" placeholder=""> -->
+          <small class="erro">{{ $errors->first('nome') }}</small>
         </div>
         <div class="form-group col-md-6">
           <label for="cod_patrimonio">Código do patrimônio*</label>
@@ -63,8 +63,8 @@
       <div class="form-row">
 
         <div class="form-group col-md-3">
-          <label for="status">Status</label> <a href="{{ route('criar_status_item') }}"><i class="fas fa-plus-circle" title="Novo Status"></i></a>
-          <select name="status" class="form-control">
+          <label for="status_id">Status</label> <a href="{{ route('criar_status_item') }}"><i class="fas fa-plus-circle" title="Novo Status"></i></a>
+          <select name="status_id" class="form-control">
             @foreach( $status_array as $stat )
               <option value="{{ $stat->id }}" {{ $status_id == $stat->id ? 'selected="selected"' : '' }}>{{ $stat->nome }}</option>
             @endforeach
@@ -72,8 +72,8 @@
         </div>   
 
         <div class="form-group col-md-3">
-          <label for="tipo">Tipo</label> <a href="{{ route('criar_tipo_item') }}"><i class="fas fa-plus-circle" title="Novo Tipo"></i></a>
-          <select name="tipo" class="form-control">
+          <label for="tipo_id">Tipo</label> <a href="{{ route('criar_tipo_item') }}"><i class="fas fa-plus-circle" title="Novo Tipo"></i></a>
+          <select name="tipo_id" class="form-control">
           @foreach( $tipos_array as $tipos )
               <option value="{{ $tipos->id }}" {{ $tipo_id == $tipos->id ? 'selected="selected"' : '' }}>{{ $tipos->nome }}</option>
             @endforeach

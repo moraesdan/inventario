@@ -17,7 +17,7 @@ class CreateFornecedoresTable extends Migration
             $table->bigIncrements('id');
             $table->string('cnpj');
             $table->string('razao');
-            $table->string('telefone');
+            $table->string('telefone')->nullable();
             $table->timestamps();
         });
     }

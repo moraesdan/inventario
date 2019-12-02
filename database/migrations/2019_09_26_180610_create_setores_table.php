@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSetoresTable extends Migration
 {
-    /**
+    /**ß
      * Run the migrations.
      *
      * @return void
@@ -16,7 +16,7 @@ class CreateSetoresTable extends Migration
         Schema::create('setores', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->string('descricao');
+            $table->string('descricao')->nullable();
             $table->timestamps();
         });
     }

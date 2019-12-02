@@ -72,7 +72,7 @@ class ItemController extends Controller {
                     'status' => 'required',
                     'tipo' => 'required',
                     'valor' => 'required',
-                    'entrada' => 'date',
+                    'entrada' => 'nullable|date',
                 ]
             );
 

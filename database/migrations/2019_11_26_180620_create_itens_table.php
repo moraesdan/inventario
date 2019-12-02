@@ -17,10 +17,10 @@ class CreateItensTable extends Migration
             $table->bigIncrements('id');
             $table->string('cod_patrimonio');
             $table->string('nome');
-            $table->string('descricao');
+            $table->string('descricao')->nullable();
             $table->string('valor');
-            $table->date('entrada');
-            $table->string('nota');
+            $table->date('entrada')->nullable();
+            $table->string('nota')->nullable();
             $table->bigInteger('status_id')->unsigned();
             $table->foreign('status_id')->references('id')->on('status');
             $table->bigInteger('tipo_id')->unsigned();
