@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'administrador',
             'email' => 'administrador@gmail.com',
-            'password' => bcrypt('aaaaaa'),
+            'password' => bcrypt('Labo2020'),
             'setor_id' => 1,
             'cpf' => '',
             'funcao' => 'Coordenador',
