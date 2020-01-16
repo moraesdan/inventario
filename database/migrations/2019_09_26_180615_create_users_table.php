@@ -20,10 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('cpf');
-            $table->string('funcao');
+            $table->string('funcao')->nullable();
             $table->bigInteger('setor_id')->unsigned();
             $table->foreign('setor_id')->references('id')->on('setores');
-            $table->string('encarregado');
+            //$table->string('encarregado');
             $table->rememberToken();
             $table->timestamps();
         });
