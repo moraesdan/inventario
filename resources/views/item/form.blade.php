@@ -62,7 +62,7 @@
 
       <div class="form-row">
 
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-6">
           <label for="status_id">Status</label> <a href="{{ route('criar_status_item') }}"><i class="fas fa-plus-circle" title="Novo Status"></i></a>
           <select name="status_id" class="form-control">
             @foreach( $status_array as $stat )
@@ -71,7 +71,7 @@
           </select>
         </div>   
 
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-6">
           <label for="tipo_id">Tipo</label> <a href="{{ route('criar_tipo_item') }}"><i class="fas fa-plus-circle" title="Novo Tipo"></i></a>
           <select name="tipo_id" class="form-control">
           @foreach( $tipos_array as $tipos )
@@ -80,7 +80,13 @@
           </select>
         </div>
 
-        <div class="form-group col-md-3">
+        
+      </div>
+
+
+      <div class="form-row">
+
+      <div class="form-group col-md-4">
           <label for="setor_id">Setor</label> <a href="{{ route('novo_setor') }}"><i class="fas fa-plus-circle" title="Novo Setor"></i></a>
           <select name="setor_id" class="form-control">
             @foreach( $setores as $setor )
@@ -90,7 +96,7 @@
           <small class="erro">{{ $errors->first('setor_id') }}</small>
         </div>
 
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
           <label for="local_id">Local</label> <a href="{{ route('novo_local') }}"><i class="fas fa-plus-circle" title="Novo Local"></i></a>
           <select name="local_id" class="form-control">
             @foreach( $locais as $local )
@@ -100,6 +106,15 @@
           <small class="erro">{{ $errors->first('local_id') }}</small>
         </div>
         
+        <div class="form-group col-md-4">
+          <label for="fornecedor_id">Fornecedor</label> <a href="{{ route('novo_fornecedor') }}"><i class="fas fa-plus-circle" title="Novo fornecedor"></i></a>
+          <select name="fornecedor_id" class="form-control">
+            @foreach( $fornecedores as $fornecedor )
+              <option value="{{ $fornecedor->id }}" {{ $fornecedor_id == $fornecedor->id ? 'selected="selected"' : '' }}>{{ $fornecedor->razao }}</option>
+            @endforeach
+          </select>
+          <small class="erro">{{ $errors->first('fornecedor_id') }}</small>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary">Salvar</button>

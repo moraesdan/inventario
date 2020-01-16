@@ -69,8 +69,8 @@ class ItemController extends Controller {
                 [
                     'nome' => 'required',
                     'cod_patrimonio' => 'required',
-                    'status' => 'required',
-                    'tipo' => 'required',
+                    // 'status' => 'required',
+                    // 'tipo' => 'required',
                     'valor' => 'required',
                     'entrada' => 'nullable|date',
                 ]
@@ -156,8 +156,8 @@ class ItemController extends Controller {
                 [
                     'nome' => 'required',
                     'cod_patrimonio' => 'required',
-                    'status' => 'required',
-                    'tipo' => 'required',
+                    //'status' => 'required',
+                    //'tipo' => 'required',
                     'valor' => 'required',
                     'entrada' => 'date',
                 ]
