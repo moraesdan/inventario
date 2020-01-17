@@ -162,7 +162,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Desenvolvimento</h6>
                 </div>
                 <div class="card-body">
-                    <p>Desenvolvido em Laravel pela TI do LABO. Versão 1.0</p>
+                    <p>Desenvolvido em Laravel pela TI do LABO. Versão 1.1.6</p>
                 </div>
             </div>
         </div>
